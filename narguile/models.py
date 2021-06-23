@@ -22,3 +22,18 @@ class Category(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+def validate_str(value):
+    if type(value) != str:
+        raise ValueError('Valor erraduuu')
+    return value
+
+def create_product(name,description,price,category):
+    validate_str(name)
+    return Product(
+        name=name,
+        description=description,
+        price=price,
+        category=category
+    )
