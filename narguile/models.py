@@ -18,7 +18,7 @@ class Category(models.Model):
         ("G", 'Grande')
     )
 
-    name = models.CharField(max_length=1, choices=SIZE)
+    name = models.CharField(max_length=1, choices=SIZE, unique=True)
 
     def __str__(self) -> str:
         return self.name
