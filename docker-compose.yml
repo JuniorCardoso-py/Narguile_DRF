@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+    postgres_database:
+        image: postgres
+        environment: 
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=olist
+            - POSTGRES_PASSWORD=olist123
+        ports: 
+            - 5432:5432
+        expose: 
+            - 5432
+    star_app:
+        image: 
+            olistts/poetry_django_manage
+        depends_on: 
+            - postgres_database
+        ports: 
+            - 8000:8000
